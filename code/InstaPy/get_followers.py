@@ -31,9 +31,9 @@ with smart_run(session):
 			segm8_module.display_int(subscribers_count, 0, 4, segm8.Align.RIGHT)
 
 			if subscribers_count > previous_subscribers_count:
-				os.system('mpg123 /home/pi/instagram_sub_counter/sound/Sound_05810.mp3')
+				os.system('mpg123 /home/pi/instagram_subscriber_counter/sound_files/Sound_05810.mp3')
 			else:
-				os.system('mpg123 /home/pi/instagram_sub_counter/sound/Sound_05829.mp3')
+				os.system('mpg123 /home/pi/instagram_subscriber_counter/sound_files/Sound_05829.mp3')
 
 			previous_subscribers_count = subscribers_count
 
