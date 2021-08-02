@@ -19,27 +19,22 @@ segm8_module = segm8.SegM8(0, 4)
 subscribers_count = 0
 previous_subscribers_count = 0
 
-session = instapy.InstaPy(username=INSTAGRAM_USERNAME,
-                          password=INSTAGRAM_PASSWORD, headless_browser=True)
+session = instapy.InstaPy(username=INSTAGRAM_USERNAME,password=INSTAGRAM_PASSWORD, headless_browser=True)
 
 with smart_run(session):
-    while True:
-        reload_webpage(session.browser)
-        subscribers_count, following_count = get_relationship_counts(
-            session.browser, INSTAGRAM_TRACKED_USER_NAME, session.logger)
-        print('Subscribers count: ', subscribers_count)
+	while True:
+		reload_webpage(session.browser)
+		subscribers_count, following_count = get_relationship_counts(session.browser,INSTAGRAM_TRACKED_USER_NAME, session.logger)
+		print('Subscribers count: ', subscribers_count)
 
-        if subscribers_count != previous_subscribers_count:
-            segm8_module.display_int(
-                subscribers_count, 0, 4, segm8.Align.RIGHT)
+		if subscribers_count != previous_subscribers_count:
+			segm8_module.display_int(subscribers_count, 0, 4, segm8.Align.RIGHT)
 
-            if subscribers_count > previous_subscribers_count:
-                os.system(
-                    'mpg123 /home/pi/instagram_sub_counter/sound/Sound_05810.mp3')
-            else:
-                os.system(
-                    'mpg123 /home/pi/instagram_sub_counter/sound/Sound_05829.mp3')
+			if subscribers_count > previous_subscribers_count:
+				os.system('mpg123 /home/pi/instagram_sub_counter/sound/Sound_05810.mp3')
+			else:
+				os.system('mpg123 /home/pi/instagram_sub_counter/sound/Sound_05829.mp3')
 
-            previous_subscribers_count = subscribers_count
+			previous_subscribers_count = subscribers_count
 
-        time.sleep(REQUEST_INTERVAL_SECONDS)
+		time.sleep(REQUEST_INTERVAL_SECONDS)
