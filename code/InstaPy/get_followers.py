@@ -5,6 +5,7 @@ from instapy.util import smart_run
 from instapy.util import get_relationship_counts
 from instapy.util import reload_webpage
 
+import sys
 import os
 import time
 import segm8
@@ -26,6 +27,7 @@ with smart_run(session):
 		reload_webpage(session.browser)
 		subscribers_count, following_count = get_relationship_counts(session.browser,INSTAGRAM_TRACKED_USER_NAME, session.logger)
 		print('Subscribers count: ', subscribers_count)
+		sys.stdout.flush()
 
 		if subscribers_count != previous_subscribers_count:
 			segm8_module.display_int(subscribers_count, 0, 4, segm8.Align.RIGHT)
