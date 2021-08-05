@@ -37,6 +37,6 @@ with smart_run(session):
 			else:
 				os.system('mpg123 /home/pi/instagram_subscriber_counter/sound_files/Sound_05829.mp3')
 
-			previous_subscribers_count = subscribers_count
+		previous_subscribers_count = subscribers_count
 
 		time.sleep(REQUEST_INTERVAL_SECONDS)
