@@ -29,7 +29,6 @@ with smart_run(session):
 		print('Subscribers count: ', subscribers_count)
 		sys.stdout.flush()
 
-		segm8_module.clear()
 		segm8_module.display_int(subscribers_count, 0, 4, segm8.Align.RIGHT)
 
 		if subscribers_count != previous_subscribers_count:
